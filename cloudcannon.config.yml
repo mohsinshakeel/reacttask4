@@ -1,0 +1,44 @@
+paths:
+  static: public
+  uploads: public/uploads
+
+collections_config:
+  pages:
+    path: src/content/pages
+    url: "/[slug]/"
+    icon: wysiwyg
+    disable_add_folder: true
+    _enabled_editors:
+      - visual
+    add_options:
+      - name: Add New Page
+        schema: default
+        icon: note_add
+    schemas:
+      default:
+        name: New Page
+        path: schemas/page.md
+        new_preview_url: "/"
+    _inputs:
+      content_blocks:
+        empty_type: array
+    filter:
+      base: strict
+  data:
+    path: data
+    disable_add: true
+    disable_add_folder: true
+    disable_url: true
+    icon: data_usage
+
+collection_groups:
+  - heading: Pages
+    collections:
+      - pages
+  - heading: Site Settings  
+    collections:
+      - data
+
+_structures:
+  content_blocks:
+    style: modal
